@@ -1,0 +1,39 @@
+<div class="qy-list">
+
+  <div class="qy-list-header">
+    <label for="title">ToDoList</label>
+    <input type="text" [(ngModel)]="keyword" class="qy-input" id="title" placeholder="添加todo" (keyup)="doAdd($event)">
+  </div>
+
+  <div class="qy-list-content">
+    <div class="qy-list-content-title">
+      <h2>正在进行</h2>
+      <span>{{toDoList.length}}</span>
+    </div>
+    <div class="qy-list-content-row">
+      <ng-container *ngFor="let item of toDoList;let key = index">
+        <div class="qy-list-content-item" *ngIf="item.status==0">
+          <input type="checkbox" [(ngModel)]="item.status">
+          <p>{{item.keyword}}</p>
+          <span (click)="doDelete(key)">-</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+
+  <div class="qy-list-content">
+    <div class="qy-list-content-title">
+      <h2>已经完成</h2>
+      <span>1</span>
+    </div>
+    <div class="qy-list-content-row">
+      <ng-container *ngFor="let item of toDoList;let key = index">
+        <div class="qy-list-content-item" *ngIf="item.status==1">
+          <input type="checkbox" [(ngModel)]="item.status">
+          <p>{{item.keyword}}</p>
+          <span (click)="doDelete(key)">-</span>
+        </div>
+      </ng-container>
+    </div>
+  </div>
+</div>
