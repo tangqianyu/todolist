@@ -8,7 +8,7 @@
   <div class="qy-list-content">
     <div class="qy-list-content-title">
       <h2>正在进行</h2>
-      <span>{{toDoList.length}}</span>
+      <span>{{doingNum()}}</span>
     </div>
     <div class="qy-list-content-row">
       <ng-container *ngFor="let item of toDoList;let key = index">
@@ -24,7 +24,7 @@
   <div class="qy-list-content">
     <div class="qy-list-content-title">
       <h2>已经完成</h2>
-      <span>1</span>
+      <span>{{doneNum()}}</span>
     </div>
     <div class="qy-list-content-row">
       <ng-container *ngFor="let item of toDoList;let key = index">

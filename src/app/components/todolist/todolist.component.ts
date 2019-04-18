@@ -6,10 +6,12 @@ import { Component, OnInit } from '@angular/core';
 	styleUrls: ['./todolist.component.less']
 })
 export class TodolistComponent implements OnInit {
-	
-	public toDoList: any[] = [];
-	public keyword: string;
-	constructor() { }
+
+	public toDoList: any[] = []
+	public keyword: string
+
+	constructor() {
+	}
 
 	ngOnInit() { }
 
@@ -20,9 +22,17 @@ export class TodolistComponent implements OnInit {
 				keyword: this.keyword
 			})
 			this.keyword = ''
+
+
 		}
 	}
 	doDelete(key: number): void {
 		this.toDoList.splice(key, 1)
+	}
+	doingNum() {
+		return this.toDoList.filter(item => item.status == 0).length
+	}
+	doneNum() {
+		return this.toDoList.filter(item => item.status == 1).length
 	}
 }
